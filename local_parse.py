@@ -6,19 +6,14 @@ with open("index.html") as fp:
     soup = BeautifulSoup(fp, "html.parser")
     
 
-# print(soup)
+title_list =[]
 
-# first_fav = soup.find_all('section', class_='Favourites')
+lists = soup.find_all('ol')
 
-# print(first_fav)
+titles = soup.find_all( 'h3', class_='favourites' )
 
-lists = soup.find_all('ul')
-
-titles = soup.find_all('ul')
-
-# for my_title in titles:
-#     my_title.decompose()
-#     print(my_title.text)
+for my_title in titles:
+    title_list.append(my_title.text)
 
 first_place = []
 second_place = []
@@ -29,10 +24,6 @@ for list_item in lists:
     if first_element:
         first_place.append(first_element.text)
         # print(first_element.text)
-
-from bs4 import BeautifulSoup
-
-# ... (Your HTML and initial setup code is the same) ...
 
 for list_item_2 in lists:
     all_list_items = list_item_2.find_all('li')  # Find all <li> items
@@ -49,16 +40,16 @@ for list_item_3 in lists:
         third_place.append(third_element.text)
         # print(third_element.text)
 
+my_dict = {}
+my_dict["Titles"] = title_list
+my_dict["First Place"] = first_place
+my_dict["Second Place"] = second_place
+my_dict["Third Place"] = third_place
 
-# print(second_place)
+# print(my_dict)
 
+df = pd.DataFrame(my_dict)
+print(df)
 
-# row = 5
-# while true
-#     element = soup.select('tr:nth-of-type('+ row +')')
-#     if len(element) > 0:
-#         # element is your desired row element, do what you want with it 
-#         row += 5
-#     else:
-#         break
+# df.to_excel("faves.xlsx", index=False)
 

@@ -64,4 +64,4 @@ my_dict["Area"] = areas
 df = pd.DataFrame(my_dict)
 
 print(df.head())
-df.to_excel("countries.xlsx", index=False)
+# df.to_excel("countries.xlsx", index=False)
