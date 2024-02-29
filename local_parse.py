@@ -51,5 +51,5 @@ my_dict["Third Place"] = third_place
 df = pd.DataFrame(my_dict)
 print(df)
 
-# df.to_excel("faves.xlsx", index=False)
+df.to_excel("favourites.xlsx", index=False)
 

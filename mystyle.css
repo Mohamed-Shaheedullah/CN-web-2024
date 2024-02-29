@@ -18,15 +18,15 @@ h3 {
 .myunderline {text-decoration: underline;
 }
 
-.Favourites ul > li:nth-child(1) {
+.favourites ol > li:nth-child(1) {
     color: gold;
 }
 
-.Favourites ul > li:nth-child(2) {
+.favourites ol > li:nth-child(2) {
     color: silver;
 }
 
-.Favourites ul > li:nth-child(3) {
+.favourites ol > li:nth-child(3) {
     color: rgb(150,116,68);
 }
 
