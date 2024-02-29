@@ -6,19 +6,12 @@ import collections
 
 html_text = requests.get('https://wearecodenation.com/2024/01/23/data-course-playground/').text
 
-# print(html_text)
 
 soup = BeautifulSoup(html_text, 'lxml')
-
-# print(soup)
-
-# <h5 class="elementor-heading-title elementor-size-default">Level 4: Apprenticeship: Software Developer</h5>
 
 h5s = soup.find_all('h5', class_="elementor-heading-title elementor-size-default")
 
 # my_dict ={}
-
-
 
 # for h5 in h5s:
 #     if ":" in h5.text:
@@ -28,8 +21,7 @@ h5s = soup.find_all('h5', class_="elementor-heading-title elementor-size-default
 # print(my_dict)
 
 
-
-h6s=soup.find_all("h6")
+h6s = soup.find_all("h6")
 
 # for h6 in h6s:
 #     print(h6.text)
@@ -56,20 +48,21 @@ h6s=soup.find_all("h6")
 
 # print(my_dict)
 
-
-
 my_dict = collections.defaultdict(list)
 
 for h5 in h5s:
     if ":" in h5.text:
-        my_dict[h5.text] = ""
         h6_match = h5.find_next('h6')
         # print(h5.text)
         for single_date in h6_match.strings:
             print(h5.text)
             print(single_date)
-            # for key in my_dict.keys():
-            #     if  key == h5.text:
-            my_dict[h5.text] = single_date
+            my_dict[h5.text].append(single_date)
+            # my_dict[h5.text] = single_date
 
-print(my_dict)
+df = pd.DataFrame(dict([(key, pd.Series(value)) for key, value in my_dict.items()]))
+
+print(df)
+
+# df2 = pd.DataFrame(my_dict)
+# print(df2)
