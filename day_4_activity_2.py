@@ -7,7 +7,7 @@ df = pd.read_excel('books.xlsx')
 
 max_price = df["Price"].max()
 
-print(f" the max price is {max_price}")
+print(f"The max price is {max_price}")
 
 # Count the cells greater than 5
 four_stars = (df['Rating / 5'] == 4).sum()

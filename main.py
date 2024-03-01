@@ -6,15 +6,9 @@ import openpyxl
 
 html_text = requests.get('https://www.scrapethissite.com/pages/simple/')
 
-# print(html_text.text)
-
 souped_html = BeautifulSoup(html_text.text, 'lxml')
 
-# print(souped_html)
-
 countries = souped_html.find_all("h3")
-
-# print(countries)
 
 countries_list = []
 

@@ -44,9 +44,6 @@ for i in range(1,51):
         print(rating_to_int.get(rating))
         rating_collection.append(rating_to_int.get(rating))
 
-
-
-
 df = pd.DataFrame({
     "Title" : title_collection,
     "Price": price_collection,
