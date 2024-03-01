@@ -13,7 +13,7 @@ h5s = soup.find_all('h5', class_="elementor-heading-title elementor-size-default
 
 h6s = soup.find_all("h6")
         
-
+# My solution 
 # use defaultdict to avoid overwriting prvious entries
 my_dict = collections.defaultdict(list)
 
@@ -27,8 +27,25 @@ for h5 in h5s:
             my_dict[h5.text].append(single_date)
             # my_dict[h5.text] = single_date
 
+
 df = pd.DataFrame(dict([(key, pd.Series(value)) for key, value in my_dict.items()]))
 
 print(df)
 
 df.to_excel("cn_courses.xlsx", index=False)
+
+
+## John's solution
+
+# course_dates ={}
+
+# for h5Tag in h5s:
+#     if ":" in h5Tag.text:
+#         course_dates[h5Tag.text] = []
+#         dates = h5Tag.find_next('h6')
+#         for single_date in h6_match.strings:
+#             course_dates[h5Tag.text].append(single_date)
+            
+
+# print(course_dates)
+# updated_dates = pd.DataFrame(dict([(key, pd.Series(value)) for key, value in course_dates.items()]))

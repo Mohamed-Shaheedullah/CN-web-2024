@@ -28,6 +28,9 @@ for i in range(1,51):
     time.sleep(1)
 
     html_text = requests.get("https://books.toscrape.com/catalogue/page-" + str(i) +".html").text
+    
+    # Johns soln
+    # html_text = requests.get(f"https://books.toscrape.com/catalogue/page-{i}.html").text
 
     soup = BeautifulSoup(html_text, 'lxml')
 
