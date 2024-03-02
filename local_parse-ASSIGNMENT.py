@@ -47,7 +47,7 @@ for list_item_3 in lists:
 ## alternative method that works.
 # https://stackoverflow.com/questions/24720442/selecting-second-child-in-beautiful-soup-with-soup-select/44509934
 
-# element = soup.select( "#hobbies > li:nth-child(3)" )
+# element = soup.select( "#hobbies > li:nth-child(2)" )
 # print(element)
 
 
