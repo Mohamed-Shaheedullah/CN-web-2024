@@ -51,7 +51,6 @@ for list_item_3 in lists:
 # print(element)
 
 
-
 my_dict = {}
 my_dict["Titles"] = title_list
 my_dict["First Place"] = first_place
